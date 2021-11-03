@@ -25,8 +25,8 @@ func _process_input(delta: float) -> void:
 	
 	if Input.is_action_pressed("left"): move_left()
 	if Input.is_action_pressed("right"): move_right()
-	if Input.is_action_just_pressed("jump"): jump(delta)
-	#if Input.is_action_just_released("jump"): release_jump_force()
+	if Input.is_action_pressed("jump"): jump(delta)
+	if Input.is_action_just_released("jump"): release_jump_force()
 	if Input.is_action_pressed("down"): duck(true)
 	if Input.is_action_just_released("down"): duck(false)
 	if Input.is_action_pressed("fire_run"): run(true)
@@ -40,9 +40,12 @@ func _process_movement(delta: float) -> void:
 	
 	var friction = delta * (MAX_WALK_SPEED if is_running else MAX_RUNNING_SPEED)
 	
+	var _jump_force = jump_force * MIN_JUMP_SPEED
+	_jump_force = clamp(_jump_force, MIN_JUMP_SPEED, MAX_JUMP_SPEED)
+	
 	velocity.x = lerp(velocity.x, horizontal_movement, friction)
-	velocity.y += (input_direction.y * jump_speed * constants.GRAVITY) + constants.GRAVITY
-	velocity = move_and_slide(velocity)
+	velocity.y += (input_direction.y * _jump_force * constants.GRAVITY) + constants.GRAVITY
+	velocity = move_and_slide(velocity, Vector2.UP)
 	
 func _process_animations() -> void:
 	# handle animation states
@@ -55,8 +58,9 @@ func move_right() -> void:
 	input_direction.x = 1
 
 func jump(delta: float) -> void:
-	input_direction.y = -1
-	jump_force += delta
+	if is_on_floor():
+		input_direction.y = -1
+	jump_force += 1
 
 func duck(should_duck: bool) -> void:
 	if should_duck and is_on_floor():
