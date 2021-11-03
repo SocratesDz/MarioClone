@@ -1,0 +1,470 @@
+[gd_scene load_steps=55 format=2]
+
+[ext_resource path="res://assets/graphics/mario/small_skid.png" type="Texture" id=1]
+[ext_resource path="res://assets/graphics/mario/big_walk3.png" type="Texture" id=2]
+[ext_resource path="res://assets/graphics/mario/small_idle.png" type="Texture" id=3]
+[ext_resource path="res://assets/graphics/mario/big_duck.png" type="Texture" id=4]
+[ext_resource path="res://assets/graphics/mario/small_walk2.png" type="Texture" id=5]
+[ext_resource path="res://assets/graphics/mario/small_walk3.png" type="Texture" id=6]
+[ext_resource path="res://assets/graphics/mario/big_climb1.png" type="Texture" id=7]
+[ext_resource path="res://assets/graphics/mario/small_walk1.png" type="Texture" id=8]
+[ext_resource path="res://assets/graphics/mario/big_climb2.png" type="Texture" id=9]
+[ext_resource path="res://assets/graphics/mario/big_idle.png" type="Texture" id=10]
+[ext_resource path="res://assets/graphics/mario/small_climb1.png" type="Texture" id=11]
+[ext_resource path="res://assets/graphics/mario/big_walk2.png" type="Texture" id=12]
+[ext_resource path="res://assets/graphics/mario/big_walk1.png" type="Texture" id=13]
+[ext_resource path="res://assets/graphics/mario/big_jump.png" type="Texture" id=14]
+[ext_resource path="res://assets/graphics/mario/small_climb2.png" type="Texture" id=15]
+[ext_resource path="res://assets/graphics/mario/dead.png" type="Texture" id=16]
+[ext_resource path="res://assets/graphics/mario/big_skid.png" type="Texture" id=17]
+[ext_resource path="res://assets/graphics/mario/small_jump.png" type="Texture" id=18]
+[ext_resource path="res://scenes/Player.gd" type="Script" id=19]
+[ext_resource path="res://assets/graphics/mario/fire_walk3.png" type="Texture" id=20]
+[ext_resource path="res://assets/graphics/mario/fire_jump.png" type="Texture" id=21]
+[ext_resource path="res://assets/graphics/mario/fire_walk1.png" type="Texture" id=22]
+[ext_resource path="res://assets/graphics/mario/fire_climb2.png" type="Texture" id=23]
+[ext_resource path="res://assets/graphics/mario/fire_walk_throw1.png" type="Texture" id=24]
+[ext_resource path="res://assets/graphics/mario/fire_walk2.png" type="Texture" id=25]
+[ext_resource path="res://assets/graphics/mario/fire_climb1.png" type="Texture" id=26]
+[ext_resource path="res://assets/graphics/mario/fire_walk_throw2.png" type="Texture" id=27]
+[ext_resource path="res://assets/graphics/mario/fire_walk_throw3.png" type="Texture" id=28]
+[ext_resource path="res://assets/graphics/mario/fire_idle.png" type="Texture" id=29]
+[ext_resource path="res://assets/graphics/mario/fire_duck.png" type="Texture" id=30]
+[ext_resource path="res://assets/graphics/mario/fire_skid_throw.png" type="Texture" id=31]
+[ext_resource path="res://assets/graphics/mario/fire_skid.png" type="Texture" id=32]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "small_dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "big_climb",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "fire_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "big_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "big_skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "big_duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "big_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "small_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "small_skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "small_walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "small_climb",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "small_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "big_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 25 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "fire_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "fire_climb",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "fire_skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "fire_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "fire_skid_throw",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "fire_duck",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "fire_walk_throw",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 8 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "big_climb"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_climb" ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "big_duck"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_duck" ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "big_idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_idle" ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "big_jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_jump" ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "big_skid"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_skid" ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "big_walk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "big_walk" ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fire_climb"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_climb" ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fire_duck"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_duck" ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "fire_idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_idle" ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "fire_jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_jump" ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "fire_skid"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_skid" ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "fire_skid_throw"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_skid_throw" ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "fire_walk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_walk" ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "fire_walk_throw"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_walk_throw" ]
+}
+
+[sub_resource type="Animation" id=17]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_climb" ]
+}
+
+[sub_resource type="Animation" id=18]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_dead" ]
+}
+
+[sub_resource type="Animation" id=19]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_idle" ]
+}
+
+[sub_resource type="Animation" id=20]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_jump" ]
+}
+
+[sub_resource type="Animation" id=21]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_skid" ]
+}
+
+[sub_resource type="Animation" id=22]
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_walk" ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 19 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "small_idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/big_climb = SubResource( 3 )
+anims/big_duck = SubResource( 4 )
+anims/big_idle = SubResource( 5 )
+anims/big_jump = SubResource( 6 )
+anims/big_skid = SubResource( 7 )
+anims/big_walk = SubResource( 8 )
+anims/fire_climb = SubResource( 9 )
+anims/fire_duck = SubResource( 10 )
+anims/fire_idle = SubResource( 11 )
+anims/fire_jump = SubResource( 12 )
+anims/fire_skid = SubResource( 13 )
+anims/fire_skid_throw = SubResource( 14 )
+anims/fire_walk = SubResource( 15 )
+anims/fire_walk_throw = SubResource( 16 )
+anims/small_climb = SubResource( 17 )
+anims/small_dead = SubResource( 18 )
+anims/small_idle = SubResource( 19 )
+anims/small_jump = SubResource( 20 )
+anims/small_skid = SubResource( 21 )
+anims/small_walk = SubResource( 22 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+anim_player = NodePath("../AnimationPlayer")
