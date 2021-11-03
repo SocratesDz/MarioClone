@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://assets/graphics/mario/small_skid.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/mario/big_walk3.png" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://assets/graphics/mario/fire_duck.png" type="Texture" id=30]
 [ext_resource path="res://assets/graphics/mario/fire_skid_throw.png" type="Texture" id=31]
 [ext_resource path="res://assets/graphics/mario/fire_skid.png" type="Texture" id=32]
+[ext_resource path="res://scenes/small_state_anim.tres" type="AnimationNodeStateMachine" id=33]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -433,6 +434,8 @@ tracks/0/keys = {
 "values": [ "small_walk" ]
 }
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=23]
+
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 19 )
 
@@ -467,4 +470,8 @@ anims/small_skid = SubResource( 21 )
 anims/small_walk = SubResource( 22 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = ExtResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 23 )
+parameters/small_walk/TimeScale/scale = 1.0

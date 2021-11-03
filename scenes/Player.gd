@@ -7,6 +7,9 @@ const MIN_JUMP_SPEED := 20
 const MAX_JUMP_SPEED := 30
 
 onready var constants = preload("res://Constants.gd")
+onready var animation_tree = $AnimationTree
+
+var animation_state_machine_playback: AnimationNodeStateMachinePlayback
 
 var input_direction := Vector2.ZERO
 var velocity := Vector2.ZERO
@@ -14,6 +17,11 @@ var velocity := Vector2.ZERO
 var is_ducking := false
 var is_running := false
 var jump_force := 0.0
+
+func _ready():
+	animation_state_machine_playback = animation_tree["parameters/playback"]
+	var animation_state_machine = animation_tree.tree_root
+	animation_state_machine_playback.start(animation_state_machine.get_start_node())
 
 func _physics_process(delta: float) -> void:
 	_process_input(delta)
@@ -49,7 +57,12 @@ func _process_movement(delta: float) -> void:
 	
 func _process_animations() -> void:
 	# handle animation states
-	pass
+	var current_animation = "small_idle"
+	if !is_on_floor():
+		current_animation = "small_jump"
+	elif velocity.x > 0:
+		current_animation = "small_walk"
+	animation_state_machine_playback.travel(current_animation)
 
 func move_left() -> void:
 	input_direction.x = -1
