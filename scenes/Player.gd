@@ -60,7 +60,7 @@ func _process_animations() -> void:
 	var current_animation = "small_idle"
 	if !is_on_floor():
 		current_animation = "small_jump"
-	elif velocity.x > 0:
+	elif round(velocity.length()) > 0:
 		current_animation = "small_walk"
 	animation_state_machine_playback.travel(current_animation)
 

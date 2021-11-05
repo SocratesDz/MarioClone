@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://assets/graphics/mario/small_skid.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/mario/big_walk3.png" type="Texture" id=2]
@@ -36,9 +36,34 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "small_walk",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "small_skid",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "small_jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "small_idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "small_dead",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "small_climb",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 9 ) ],
@@ -69,31 +94,6 @@ animations = [ {
 "frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "big_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "small_idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "small_skid",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "small_walk",
-"speed": 6.0
-}, {
-"frames": [ ExtResource( 11 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "small_climb",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "small_jump",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -141,7 +141,7 @@ animations = [ {
 extents = Vector2( 6, 8 )
 
 [sub_resource type="Animation" id=3]
-resource_name = "big_climb"
+resource_name = "big_climb_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -201,7 +201,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "big_skid"
+resource_name = "big_skid_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -216,7 +216,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
-resource_name = "big_walk"
+resource_name = "big_walk_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -231,7 +231,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "fire_climb"
+resource_name = "fire_climb_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -291,7 +291,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=13]
-resource_name = "fire_skid"
+resource_name = "fire_skid_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -306,7 +306,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "fire_skid_throw"
+resource_name = "fire_skid_throw_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -321,7 +321,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "fire_walk"
+resource_name = "fire_walk_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -351,6 +351,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=17]
+resource_name = "small_climb_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -407,6 +408,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=21]
+resource_name = "small_skid_right"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -420,7 +422,8 @@ tracks/0/keys = {
 "values": [ "small_skid" ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=24]
+resource_name = "small_walk_left"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:animation")
 tracks/0/interp = 1
@@ -433,6 +436,45 @@ tracks/0/keys = {
 "update": 1,
 "values": [ "small_walk" ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "small_walk_right"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "small_walk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=23]
 
@@ -441,33 +483,34 @@ script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "small_idle"
+animation = "fire_climb"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/big_climb = SubResource( 3 )
+anims/big_climb_right = SubResource( 3 )
 anims/big_duck = SubResource( 4 )
 anims/big_idle = SubResource( 5 )
 anims/big_jump = SubResource( 6 )
-anims/big_skid = SubResource( 7 )
-anims/big_walk = SubResource( 8 )
-anims/fire_climb = SubResource( 9 )
+anims/big_skid_right = SubResource( 7 )
+anims/big_walk_right = SubResource( 8 )
+anims/fire_climb_right = SubResource( 9 )
 anims/fire_duck = SubResource( 10 )
 anims/fire_idle = SubResource( 11 )
 anims/fire_jump = SubResource( 12 )
-anims/fire_skid = SubResource( 13 )
-anims/fire_skid_throw = SubResource( 14 )
-anims/fire_walk = SubResource( 15 )
+anims/fire_skid_right = SubResource( 13 )
+anims/fire_skid_throw_right = SubResource( 14 )
+anims/fire_walk_right = SubResource( 15 )
 anims/fire_walk_throw = SubResource( 16 )
-anims/small_climb = SubResource( 17 )
+anims/small_climb_right = SubResource( 17 )
 anims/small_dead = SubResource( 18 )
 anims/small_idle = SubResource( 19 )
 anims/small_jump = SubResource( 20 )
-anims/small_skid = SubResource( 21 )
-anims/small_walk = SubResource( 22 )
+anims/small_skid_right = SubResource( 21 )
+anims/small_walk_left = SubResource( 24 )
+anims/small_walk_right = SubResource( 22 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = ExtResource( 33 )

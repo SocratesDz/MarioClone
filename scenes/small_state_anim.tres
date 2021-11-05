@@ -12,23 +12,29 @@ animation = "small_idle"
 [sub_resource type="AnimationNodeAnimation" id=4]
 animation = "small_jump"
 
-[sub_resource type="AnimationNodeAnimation" id=19]
+[sub_resource type="AnimationNodeAnimation" id=5]
 animation = "small_skid"
 
-[sub_resource type="AnimationNodeTimeScale" id=24]
+[sub_resource type="AnimationNodeTimeScale" id=6]
 
-[sub_resource type="AnimationNodeAnimation" id=25]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "small_walk"
 
-[sub_resource type="AnimationNodeBlendTree" id=26]
-nodes/TimeScale/node = SubResource( 24 )
+[sub_resource type="AnimationNodeBlendTree" id=8]
+nodes/TimeScale/node = SubResource( 6 )
 nodes/TimeScale/position = Vector2( 420, 120 )
 nodes/output/position = Vector2( 640, 120 )
-nodes/small_walk/node = SubResource( 25 )
+nodes/small_walk/node = SubResource( 7 )
 nodes/small_walk/position = Vector2( 200, 140 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "small_walk" ]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=13]
 
@@ -36,7 +42,15 @@ node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "small_walk" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id=17]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
@@ -44,21 +58,7 @@ node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "small_walk" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=27]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=32]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [resource]
 states/small_climb/node = SubResource( 1 )
@@ -69,11 +69,11 @@ states/small_idle/node = SubResource( 3 )
 states/small_idle/position = Vector2( 25, 58 )
 states/small_jump/node = SubResource( 4 )
 states/small_jump/position = Vector2( 201, -135 )
-states/small_skid/node = SubResource( 19 )
+states/small_skid/node = SubResource( 5 )
 states/small_skid/position = Vector2( 735, 246 )
-states/small_walk/node = SubResource( 26 )
+states/small_walk/node = SubResource( 8 )
 states/small_walk/position = Vector2( 735, 58 )
-transitions = [ "small_idle", "small_dead", SubResource( 10 ), "small_idle", "small_jump", SubResource( 13 ), "small_jump", "small_dead", SubResource( 14 ), "small_jump", "small_climb", SubResource( 15 ), "small_jump", "small_idle", SubResource( 17 ), "small_skid", "small_dead", SubResource( 21 ), "small_skid", "small_jump", SubResource( 22 ), "small_skid", "small_idle", SubResource( 23 ), "small_idle", "small_walk", SubResource( 27 ), "small_walk", "small_idle", SubResource( 28 ), "small_walk", "small_jump", SubResource( 29 ), "small_jump", "small_walk", SubResource( 30 ), "small_walk", "small_skid", SubResource( 31 ), "small_skid", "small_walk", SubResource( 32 ), "small_walk", "small_dead", SubResource( 33 ), "small_climb", "small_walk", SubResource( 34 ) ]
+transitions = [ "small_idle", "small_dead", SubResource( 9 ), "small_idle", "small_jump", SubResource( 10 ), "small_jump", "small_dead", SubResource( 11 ), "small_jump", "small_climb", SubResource( 12 ), "small_jump", "small_idle", SubResource( 13 ), "small_skid", "small_dead", SubResource( 14 ), "small_skid", "small_jump", SubResource( 15 ), "small_skid", "small_idle", SubResource( 16 ), "small_idle", "small_walk", SubResource( 17 ), "small_walk", "small_idle", SubResource( 18 ), "small_walk", "small_jump", SubResource( 19 ), "small_jump", "small_walk", SubResource( 20 ), "small_walk", "small_skid", SubResource( 21 ), "small_skid", "small_walk", SubResource( 22 ), "small_walk", "small_dead", SubResource( 23 ), "small_climb", "small_walk", SubResource( 24 ) ]
 start_node = "small_idle"
 end_node = "small_dead"
-graph_offset = Vector2( -3.90588, -185.928 )
+graph_offset = Vector2( -169.331, -185.928 )
