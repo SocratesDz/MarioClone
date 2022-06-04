@@ -1,79 +1,363 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=25 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=90 format=2]
 
-[sub_resource type="AnimationNodeAnimation" id=1]
-animation = "small_climb"
+[sub_resource type="AnimationNodeBlend3" id=39]
 
-[sub_resource type="AnimationNodeAnimation" id=2]
-animation = "small_dead"
+[sub_resource type="AnimationNodeAnimation" id=57]
+animation = "big_climb_right"
 
-[sub_resource type="AnimationNodeAnimation" id=3]
-animation = "small_idle"
+[sub_resource type="AnimationNodeAnimation" id=58]
+animation = "big_climb_left"
 
-[sub_resource type="AnimationNodeAnimation" id=4]
-animation = "small_jump"
+[sub_resource type="AnimationNodeBlendSpace1D" id=40]
+blend_point_0/node = SubResource( 57 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 58 )
+blend_point_1/pos = -1.0
 
-[sub_resource type="AnimationNodeAnimation" id=5]
-animation = "small_skid"
+[sub_resource type="AnimationNodeAnimation" id=59]
+animation = "fire_climb_right"
 
-[sub_resource type="AnimationNodeTimeScale" id=6]
+[sub_resource type="AnimationNodeAnimation" id=60]
+animation = "fire_climb_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=41]
+blend_point_0/node = SubResource( 59 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 60 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "small_climb_right"
+
+[sub_resource type="AnimationNodeAnimation" id=43]
+animation = "small_climb_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=44]
+blend_point_0/node = SubResource( 42 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 43 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=45]
+graph_offset = Vector2( -60, -85.2604 )
+nodes/Blend3/node = SubResource( 39 )
+nodes/Blend3/position = Vector2( 560, 80 )
+nodes/big_climb/node = SubResource( 40 )
+nodes/big_climb/position = Vector2( 160, 160 )
+nodes/fire_climb/node = SubResource( 41 )
+nodes/fire_climb/position = Vector2( 160, 320 )
+nodes/output/position = Vector2( 840, 140 )
+nodes/small_climb/node = SubResource( 44 )
+nodes/small_climb/position = Vector2( 163, -13 )
+node_connections = [ "output", 0, "Blend3", "Blend3", 0, "small_climb", "Blend3", 1, "big_climb", "Blend3", 2, "fire_climb" ]
+
+[sub_resource type="AnimationNodeBlend3" id=68]
+
+[sub_resource type="AnimationNodeAnimation" id=69]
+animation = "big_duck_right"
+
+[sub_resource type="AnimationNodeAnimation" id=70]
+animation = "big_duck_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=71]
+blend_point_0/node = SubResource( 69 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 70 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=72]
+animation = "fire_duck_right"
+
+[sub_resource type="AnimationNodeAnimation" id=73]
+animation = "fire_duck_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=74]
+blend_point_0/node = SubResource( 72 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 73 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=75]
+animation = "small_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=76]
+animation = "small_idle_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=77]
+blend_point_0/node = SubResource( 75 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 76 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=67]
+nodes/Blend3/node = SubResource( 68 )
+nodes/Blend3/position = Vector2( 560, 160 )
+nodes/big_duck/node = SubResource( 71 )
+nodes/big_duck/position = Vector2( 240, 240 )
+nodes/fire_duck/node = SubResource( 74 )
+nodes/fire_duck/position = Vector2( 240, 400 )
+nodes/output/position = Vector2( 780, 220 )
+nodes/small_duck/node = SubResource( 77 )
+nodes/small_duck/position = Vector2( 240, 80 )
+node_connections = [ "output", 0, "Blend3", "Blend3", 0, "small_duck", "Blend3", 1, "big_duck", "Blend3", 2, "fire_duck" ]
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "big_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "big_idle_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=19]
+blend_point_0/node = SubResource( 17 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 18 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=20]
+animation = "fire_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "fire_idle_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=22]
+blend_point_0/node = SubResource( 20 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 21 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlend3" id=1]
+
+[sub_resource type="AnimationNodeAnimation" id=23]
+animation = "small_idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id=24]
+animation = "small_idle_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=25]
+blend_point_0/node = SubResource( 23 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 24 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=5]
+nodes/big_idle/node = SubResource( 19 )
+nodes/big_idle/position = Vector2( 260, 240 )
+nodes/fire_idle/node = SubResource( 22 )
+nodes/fire_idle/position = Vector2( 260, 380 )
+nodes/idle_blend/node = SubResource( 1 )
+nodes/idle_blend/position = Vector2( 560, 180 )
+nodes/output/position = Vector2( 800, 200 )
+nodes/small_idle/node = SubResource( 25 )
+nodes/small_idle/position = Vector2( 260, 100 )
+node_connections = [ "output", 0, "idle_blend", "idle_blend", 0, "small_idle", "idle_blend", 1, "big_idle", "idle_blend", 2, "fire_idle" ]
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "big_jump_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=28]
+blend_point_0/node = SubResource( 27 )
+blend_point_0/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id=46]
+animation = "fire_jump_right"
+
+[sub_resource type="AnimationNodeAnimation" id=47]
+animation = "fire_jump_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=31]
+blend_point_0/node = SubResource( 46 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 47 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlend3" id=26]
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "small_jump_right"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "small_jump_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=34]
+blend_point_0/node = SubResource( 32 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 33 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=35]
+graph_offset = Vector2( 0, 8 )
+nodes/big_jump/node = SubResource( 28 )
+nodes/big_jump/position = Vector2( 220, 220 )
+nodes/fire_jump/node = SubResource( 31 )
+nodes/fire_jump/position = Vector2( 220, 360 )
+nodes/jump_blend/node = SubResource( 26 )
+nodes/jump_blend/position = Vector2( 580, 120 )
+nodes/output/position = Vector2( 820, 160 )
+nodes/small_jump/node = SubResource( 34 )
+nodes/small_jump/position = Vector2( 220, 60 )
+node_connections = [ "output", 0, "jump_blend", "jump_blend", 0, "small_jump", "jump_blend", 1, "big_jump", "jump_blend", 2, "fire_jump" ]
+
+[sub_resource type="AnimationNodeBlend3" id=78]
+
+[sub_resource type="AnimationNodeAnimation" id=79]
+animation = "big_skid_right"
+
+[sub_resource type="AnimationNodeAnimation" id=80]
+animation = "big_skid_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=81]
+blend_point_0/node = SubResource( 79 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 80 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=82]
+animation = "fire_skid_right"
+
+[sub_resource type="AnimationNodeAnimation" id=83]
+animation = "fire_skid_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=84]
+blend_point_0/node = SubResource( 82 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 83 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeAnimation" id=85]
+animation = "small_skid_right"
+
+[sub_resource type="AnimationNodeAnimation" id=86]
+animation = "small_skid_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=87]
+blend_point_0/node = SubResource( 85 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 86 )
+blend_point_1/pos = -1.0
+
+[sub_resource type="AnimationNodeBlendTree" id=88]
+nodes/Blend3/node = SubResource( 78 )
+nodes/Blend3/position = Vector2( 420, 160 )
+nodes/big_skid/node = SubResource( 81 )
+nodes/big_skid/position = Vector2( 140, 220 )
+nodes/fire_skid/node = SubResource( 84 )
+nodes/fire_skid/position = Vector2( 140, 360 )
+nodes/output/position = Vector2( 640, 200 )
+nodes/small_skid/node = SubResource( 87 )
+nodes/small_skid/position = Vector2( 140, 80 )
+node_connections = [ "output", 0, "Blend3", "Blend3", 0, "small_skid", "Blend3", 1, "big_skid", "Blend3", 2, "fire_skid" ]
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "big_walk_right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=14]
+blend_point_0/node = SubResource( 13 )
+blend_point_0/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "fire_walk_right"
+
+[sub_resource type="AnimationNodeAnimation" id=48]
+animation = "fire_walk_left"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=16]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 48 )
+blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeAnimation" id=7]
-animation = "small_walk"
+animation = "small_walk_left"
 
-[sub_resource type="AnimationNodeBlendTree" id=8]
-nodes/TimeScale/node = SubResource( 6 )
-nodes/TimeScale/position = Vector2( 420, 120 )
-nodes/output/position = Vector2( 640, 120 )
-nodes/small_walk/node = SubResource( 7 )
-nodes/small_walk/position = Vector2( 200, 140 )
-node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "small_walk" ]
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "small_walk_right"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=9]
+[sub_resource type="AnimationNodeBlendSpace1D" id=9]
+blend_point_0/node = SubResource( 7 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 8 )
+blend_point_1/pos = 1.0
+value_label = "0"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+[sub_resource type="AnimationNodeBlend3" id=6]
+
+[sub_resource type="AnimationNodeTimeScale" id=12]
+
+[sub_resource type="AnimationNodeBlendTree" id=10]
+graph_offset = Vector2( 0, -18 )
+nodes/big_walk/node = SubResource( 14 )
+nodes/big_walk/position = Vector2( 180, 240 )
+nodes/fire_walk/node = SubResource( 16 )
+nodes/fire_walk/position = Vector2( 180, 380 )
+nodes/output/position = Vector2( 940, 120 )
+nodes/small_walk/node = SubResource( 9 )
+nodes/small_walk/position = Vector2( 180, 100 )
+nodes/walk_blend/node = SubResource( 6 )
+nodes/walk_blend/position = Vector2( 460, 120 )
+nodes/walk_speed/node = SubResource( 12 )
+nodes/walk_speed/position = Vector2( 700, 120 )
+node_connections = [ "output", 0, "walk_speed", "walk_blend", 0, "small_walk", "walk_blend", 1, "big_walk", "walk_blend", 2, "fire_walk", "walk_speed", 0, "walk_blend" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
+[sub_resource type="AnimationNodeStateMachineTransition" id=51]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+[sub_resource type="AnimationNodeStateMachineTransition" id=52]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+[sub_resource type="AnimationNodeStateMachineTransition" id=53]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+[sub_resource type="AnimationNodeStateMachineTransition" id=54]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=21]
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=22]
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=23]
+[sub_resource type="AnimationNodeStateMachineTransition" id=89]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=24]
+[sub_resource type="AnimationNodeStateMachineTransition" id=90]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=91]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=92]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=93]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=94]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=95]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=96]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=97]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=98]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=99]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=100]
 
 [resource]
-states/small_climb/node = SubResource( 1 )
-states/small_climb/position = Vector2( 637, -135 )
-states/small_dead/node = SubResource( 2 )
-states/small_dead/position = Vector2( 201, 246 )
-states/small_idle/node = SubResource( 3 )
-states/small_idle/position = Vector2( 25, 58 )
-states/small_jump/node = SubResource( 4 )
-states/small_jump/position = Vector2( 201, -135 )
-states/small_skid/node = SubResource( 5 )
-states/small_skid/position = Vector2( 735, 246 )
-states/small_walk/node = SubResource( 8 )
-states/small_walk/position = Vector2( 735, 58 )
-transitions = [ "small_idle", "small_dead", SubResource( 9 ), "small_idle", "small_jump", SubResource( 10 ), "small_jump", "small_dead", SubResource( 11 ), "small_jump", "small_climb", SubResource( 12 ), "small_jump", "small_idle", SubResource( 13 ), "small_skid", "small_dead", SubResource( 14 ), "small_skid", "small_jump", SubResource( 15 ), "small_skid", "small_idle", SubResource( 16 ), "small_idle", "small_walk", SubResource( 17 ), "small_walk", "small_idle", SubResource( 18 ), "small_walk", "small_jump", SubResource( 19 ), "small_jump", "small_walk", SubResource( 20 ), "small_walk", "small_skid", SubResource( 21 ), "small_skid", "small_walk", SubResource( 22 ), "small_walk", "small_dead", SubResource( 23 ), "small_climb", "small_walk", SubResource( 24 ) ]
-start_node = "small_idle"
-end_node = "small_dead"
-graph_offset = Vector2( -169.331, -185.928 )
+states/Climb/node = SubResource( 45 )
+states/Climb/position = Vector2( 708.669, 129.276 )
+states/Duck/node = SubResource( 67 )
+states/Duck/position = Vector2( 212.669, -83.928 )
+states/Idle/node = SubResource( 5 )
+states/Idle/position = Vector2( 212.669, 187.072 )
+states/Jump/node = SubResource( 35 )
+states/Jump/position = Vector2( 552.669, 291.072 )
+states/Skid/node = SubResource( 88 )
+states/Skid/position = Vector2( 925.669, 129.276 )
+states/Walk/node = SubResource( 10 )
+states/Walk/position = Vector2( 539.669, -83.928 )
+transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 36 ), "Idle", "Jump", SubResource( 37 ), "Jump", "Idle", SubResource( 38 ), "Walk", "Jump", SubResource( 49 ), "Jump", "Walk", SubResource( 50 ), "Idle", "Climb", SubResource( 51 ), "Climb", "Idle", SubResource( 52 ), "Climb", "Jump", SubResource( 53 ), "Jump", "Climb", SubResource( 54 ), "Walk", "Climb", SubResource( 55 ), "Climb", "Walk", SubResource( 56 ), "Idle", "Duck", SubResource( 89 ), "Duck", "Idle", SubResource( 90 ), "Duck", "Walk", SubResource( 91 ), "Walk", "Duck", SubResource( 92 ), "Jump", "Duck", SubResource( 93 ), "Duck", "Jump", SubResource( 94 ), "Duck", "Climb", SubResource( 95 ), "Climb", "Duck", SubResource( 96 ), "Walk", "Skid", SubResource( 97 ), "Skid", "Walk", SubResource( 98 ), "Jump", "Skid", SubResource( 99 ), "Skid", "Jump", SubResource( 100 ) ]
+graph_offset = Vector2( -169.331, -180.724 )
