@@ -360,4 +360,4 @@ states/Skid/position = Vector2( 925.669, 129.276 )
 states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 539.669, -83.928 )
 transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 36 ), "Idle", "Jump", SubResource( 37 ), "Jump", "Idle", SubResource( 38 ), "Walk", "Jump", SubResource( 49 ), "Jump", "Walk", SubResource( 50 ), "Idle", "Climb", SubResource( 51 ), "Climb", "Idle", SubResource( 52 ), "Climb", "Jump", SubResource( 53 ), "Jump", "Climb", SubResource( 54 ), "Walk", "Climb", SubResource( 55 ), "Climb", "Walk", SubResource( 56 ), "Idle", "Duck", SubResource( 89 ), "Duck", "Idle", SubResource( 90 ), "Duck", "Walk", SubResource( 91 ), "Walk", "Duck", SubResource( 92 ), "Jump", "Duck", SubResource( 93 ), "Duck", "Jump", SubResource( 94 ), "Duck", "Climb", SubResource( 95 ), "Climb", "Duck", SubResource( 96 ), "Walk", "Skid", SubResource( 97 ), "Skid", "Walk", SubResource( 98 ), "Jump", "Skid", SubResource( 99 ), "Skid", "Jump", SubResource( 100 ) ]
-graph_offset = Vector2( -169.331, -180.724 )
+graph_offset = Vector2( -168.331, -112.404 )

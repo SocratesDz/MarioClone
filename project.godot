@@ -9,13 +9,67 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "PlayerState",
+"class": "Climb",
+"language": "GDScript",
+"path": "res://scenes/player/Climb.gd"
+}, {
 "base": "Object",
 "class": "Constants",
 "language": "GDScript",
 "path": "res://Constants.gd"
+}, {
+"base": "PlayerState",
+"class": "Duck",
+"language": "GDScript",
+"path": "res://scenes/player/Duck.gd"
+}, {
+"base": "PlayerState",
+"class": "Idle",
+"language": "GDScript",
+"path": "res://scenes/player/Idle.gd"
+}, {
+"base": "PlayerState",
+"class": "OnAir",
+"language": "GDScript",
+"path": "res://scenes/player/OnAir.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/player/Player.gd"
+}, {
+"base": "State",
+"class": "PlayerState",
+"language": "GDScript",
+"path": "res://scenes/player/PlayerState.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://scenes/State.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://scenes/StateMachine.gd"
+}, {
+"base": "PlayerState",
+"class": "Walk",
+"language": "GDScript",
+"path": "res://scenes/player/Walk.gd"
 } ]
 _global_script_class_icons={
-"Constants": ""
+"Climb": "",
+"Constants": "",
+"Duck": "",
+"Idle": "",
+"OnAir": "",
+"Player": "",
+"PlayerState": "",
+"State": "",
+"StateMachine": "",
+"Walk": ""
 }
 
 [application]
