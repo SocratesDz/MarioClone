@@ -8,8 +8,10 @@ func enter(msg := {}) -> void:
 	
 	if msg.get("do_jump"):
 		player.velocity.y = -max_jump_speed
+		
+	player.animation_tree.play_jump()
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	var is_running_fire = 2 if Input.is_action_pressed("fire_run") else 1
 	var motion = Input.get_action_strength("right") - Input.get_action_strength("left")
 	var speed_x_dx = motion * player.MAX_WALK_SPEED * player.constants.UNIT_SIZE * is_running_fire
@@ -18,6 +20,8 @@ func physics_update(delta: float) -> void:
 	
 	player.velocity.x = speed_x_dx
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	
+	player.animation_tree.set_direction(motion)
 	
 	if Input.is_action_just_released("jump") and player.velocity.y < max_jump_speed/2 and is_running_fire < 2:
 		player.velocity.y = player.velocity.y/2

@@ -1,7 +1,10 @@
 class_name Walk
 extends PlayerState
 
-func physics_update(delta: float) -> void:
+func enter(_msg: Dictionary = {}) -> void:
+	player.animation_tree.play_walk()
+
+func physics_update(_delta: float) -> void:
 	player.velocity.y += player.constants.GRAVITY
 	
 	var is_running_fire = 2 if Input.is_action_pressed("fire_run") else 1
@@ -10,6 +13,8 @@ func physics_update(delta: float) -> void:
 	
 	player.velocity.x = lerp(player.velocity.x, speed_change, 0.1)
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	
+	player.animation_tree.set_direction(motion)
 	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("OnAir", {do_jump = true})

@@ -39,6 +39,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player/Player.gd"
 }, {
+"base": "AnimationTree",
+"class": "PlayerAnimationTree",
+"language": "GDScript",
+"path": "res://scenes/player/PlayerAnimationTree.gd"
+}, {
 "base": "State",
 "class": "PlayerState",
 "language": "GDScript",
@@ -66,6 +71,7 @@ _global_script_class_icons={
 "Idle": "",
 "OnAir": "",
 "Player": "",
+"PlayerAnimationTree": "",
 "PlayerState": "",
 "State": "",
 "StateMachine": "",
