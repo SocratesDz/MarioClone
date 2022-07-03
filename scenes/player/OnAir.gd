@@ -21,8 +21,6 @@ func physics_update(_delta: float) -> void:
 	player.velocity.x = speed_x_dx
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
-	player.animation_tree.set_direction(motion)
-	
 	if Input.is_action_just_released("jump") and player.velocity.y < max_jump_speed/2 and is_running_fire < 2:
 		player.velocity.y = player.velocity.y/2
 	

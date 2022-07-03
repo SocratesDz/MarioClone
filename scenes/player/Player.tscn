@@ -68,14 +68,14 @@ animations = [ {
 "name": "fire_duck",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "fire_idle",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "big_idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "fire_idle",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -1411,7 +1411,7 @@ script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "small_jump"
+animation = "fire_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
