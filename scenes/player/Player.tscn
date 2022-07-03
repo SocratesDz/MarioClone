@@ -1410,10 +1410,12 @@ tracks/2/keys = {
 script = ExtResource( 19 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
 frames = SubResource( 1 )
-animation = "fire_idle"
+animation = "small_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
 shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1472,7 +1474,7 @@ parameters/Climb/small_climb/blend_position = 1.0
 parameters/Duck/big_duck/blend_position = 1.0
 parameters/Duck/fire_duck/blend_position = 1.0
 parameters/Duck/small_duck/blend_position = 1.0
-"parameters/Idle/Idle Blend/blend_amount" = 1.0
+"parameters/Idle/Idle Blend/blend_amount" = -1.0
 parameters/Idle/big_idle/blend_position = 1.0
 parameters/Idle/fire_idle/blend_position = 1.0
 parameters/Idle/small_idle/blend_position = 1.0

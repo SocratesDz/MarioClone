@@ -10,3 +10,6 @@ func physics_update(_delta: float) -> void:
 		state_machine.transition_to("Walk")
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("OnAir", {do_jump = true})
+
+	if not player.is_on_floor():
+		state_machine.transition_to("OnAir", {do_jump = false})
