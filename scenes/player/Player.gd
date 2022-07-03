@@ -9,3 +9,11 @@ onready var animation_tree: PlayerAnimationTree = $PlayerAnimationTree
 
 var facing_right := true
 var velocity := Vector2.ZERO
+
+func powerup() -> void:
+	animation_tree.play_powerup_transition(0.0)
+	
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.scancode == KEY_Q:
+			animation_tree.play_powerup_transition(-1.0)

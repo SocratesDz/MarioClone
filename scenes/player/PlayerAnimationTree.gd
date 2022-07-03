@@ -3,31 +3,61 @@ extends AnimationTree
 
 onready var state_machine_playback = get("parameters/playback")
 
-var direction = 1
+var direction: int = 1
+var powerup_status: float = -1.0
 
 func play_idle():
-	set("parameters/Idle/Idle Blend/blend_amount", -1)
+	set("parameters/Idle/Idle Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Idle")
 
 func play_jump():
-	set("parameters/Jump/Jump Blend/blend_amount", -1)
+	set("parameters/Jump/Jump Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Jump")
 
 func play_climb():
-	set("parameters/Climb/Climb Blend/blend_amount", -1)
+	set("parameters/Climb/Climb Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Climb")
 
 func play_walk():
-	set("parameters/Walk/Walk Blend/blend_amount", -1)
+	set("parameters/Walk/Walk Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Walk")
 
 func play_duck():
-	set("parameters/Duck/Duck Blend/blend_amount", -1)
+	set("parameters/Duck/Duck Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Duck")
 
 func play_skid():
-	set("parameters/Skid/Skid Blend/blend_amount", -1)
+	set("parameters/Skid/Skid Blend/blend_amount", powerup_status)
 	state_machine_playback.travel("Skid")
+
+func play_powerup_transition(powerup: float) -> void:
+	# set powerup status to a value in-between
+	if powerup_status > powerup:
+		powerup_status -= 0.5
+	elif powerup_status < powerup:
+		powerup_status += 0.5
+	else:
+		return
+	set_powerup_status()
+	yield(get_tree().create_timer(0.5), "timeout")
+	powerup_status = powerup
+	set_powerup_status()
+	
+	
+
+func set_powerup_status():
+	# idle
+	set("parameters/Idle/Idle Blend/blend_amount", powerup_status)
+	# jump
+	set("parameters/Jump/Jump Blend/blend_amount", powerup_status)
+	# climb
+	set("parameters/Climb/Climb Blend/blend_amount", powerup_status)
+	# walk
+	set("parameters/Walk/Walk Blend/blend_amount", powerup_status)
+	# duck
+	set("parameters/Duck/Duck Blend/blend_amount", powerup_status)
+	# skid
+	set("parameters/Skid/Skid Blend/blend_amount", powerup_status)
 
 func set_direction(motion: float):
 	if(int(motion) > 0 or int(motion) < 0):
