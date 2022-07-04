@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=90 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=92 format=2]
 
 [sub_resource type="AnimationNodeBlend3" id=39]
 
@@ -158,9 +158,14 @@ node_connections = [ "output", 0, "Idle Blend", "Idle Blend", 0, "small_idle", "
 [sub_resource type="AnimationNodeAnimation" id=27]
 animation = "big_jump_right"
 
+[sub_resource type="AnimationNodeAnimation" id=102]
+animation = "big_jump_left"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id=28]
 blend_point_0/node = SubResource( 27 )
 blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 102 )
+blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeAnimation" id=46]
 animation = "fire_jump_right"
@@ -187,7 +192,7 @@ blend_point_1/node = SubResource( 33 )
 blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=35]
-graph_offset = Vector2( 233.37, -45.8261 )
+graph_offset = Vector2( -309.07, 150.674 )
 "nodes/Jump Blend/node" = SubResource( 26 )
 "nodes/Jump Blend/position" = Vector2( 580, 120 )
 nodes/big_jump/node = SubResource( 28 )
@@ -254,9 +259,14 @@ node_connections = [ "output", 0, "Skid Blend", "Skid Blend", 0, "small_skid", "
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "big_walk_right"
 
+[sub_resource type="AnimationNodeAnimation" id=101]
+animation = "big_walk_left"
+
 [sub_resource type="AnimationNodeBlendSpace1D" id=14]
 blend_point_0/node = SubResource( 13 )
 blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 101 )
+blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeAnimation" id=15]
 animation = "fire_walk_right"
@@ -286,7 +296,7 @@ value_label = "0"
 [sub_resource type="AnimationNodeTimeScale" id=12]
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( 0, 113 )
+graph_offset = Vector2( 0, 232.5 )
 "nodes/Walk Blend/node" = SubResource( 6 )
 "nodes/Walk Blend/position" = Vector2( 460, 120 )
 nodes/big_walk/node = SubResource( 14 )
@@ -363,4 +373,4 @@ states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 539.669, -83.928 )
 transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 36 ), "Idle", "Jump", SubResource( 37 ), "Jump", "Idle", SubResource( 38 ), "Walk", "Jump", SubResource( 49 ), "Jump", "Walk", SubResource( 50 ), "Idle", "Climb", SubResource( 51 ), "Climb", "Idle", SubResource( 52 ), "Climb", "Jump", SubResource( 53 ), "Jump", "Climb", SubResource( 54 ), "Walk", "Climb", SubResource( 55 ), "Climb", "Walk", SubResource( 56 ), "Idle", "Duck", SubResource( 89 ), "Duck", "Idle", SubResource( 90 ), "Duck", "Walk", SubResource( 91 ), "Walk", "Duck", SubResource( 92 ), "Jump", "Duck", SubResource( 93 ), "Duck", "Jump", SubResource( 94 ), "Duck", "Climb", SubResource( 95 ), "Climb", "Duck", SubResource( 96 ), "Walk", "Skid", SubResource( 97 ), "Skid", "Walk", SubResource( 98 ), "Jump", "Skid", SubResource( 99 ), "Skid", "Jump", SubResource( 100 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -111.816, -96.8386 )
+graph_offset = Vector2( -135.816, 64.1054 )
