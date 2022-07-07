@@ -30,4 +30,4 @@ func physics_update(_delta: float) -> void:
 func can_skid(motion, velocity_x) -> bool:
 	if(is_zero_approx(motion) or is_zero_approx(velocity_x)):
 		return false
-	return (motion/abs(motion)) > (velocity_x/abs(velocity_x))
+	return (motion/abs(motion)) != (velocity_x/abs(velocity_x))
