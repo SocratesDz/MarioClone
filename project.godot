@@ -87,6 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Super Mario Bros Clone"
+run/main_scene="res://scenes/DemoLevel.tscn"
 config/icon="res://icon.png"
 
 [display]

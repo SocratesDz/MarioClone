@@ -16,6 +16,9 @@ func physics_update(_delta: float) -> void:
 	
 	player.animation_tree.set_direction(motion)
 	
+	if can_skid(motion, player.velocity.x):
+		player.animation_tree.play_skid()
+	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("OnAir", {do_jump = true})
 	if abs(player.velocity.x) < 0.2:
@@ -23,3 +26,8 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed("fire_run"):
 #		state_machine.transition_to("Fire")
 		pass
+
+func can_skid(motion, velocity_x) -> bool:
+	if(is_zero_approx(motion) or is_zero_approx(velocity_x)):
+		return false
+	return (motion/abs(motion)) > (velocity_x/abs(velocity_x))
