@@ -15,6 +15,7 @@ func physics_update(_delta: float) -> void:
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
 	player.animation_tree.set_direction(motion)
+	player.animation_tree.set_walk_speed(abs(clamp(player.velocity.x, -1.0, 1.0)))
 	
 	if can_skid(motion, player.velocity.x):
 		player.animation_tree.play_skid()

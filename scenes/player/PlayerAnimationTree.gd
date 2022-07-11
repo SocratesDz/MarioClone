@@ -5,6 +5,7 @@ onready var state_machine_playback = get("parameters/playback")
 
 var direction: int = 1
 var powerup_status: float = -1.0
+var walk_speed: float = 1.0 setget set_walk_speed
 
 func play_idle():
 	set("parameters/Idle/Idle Blend/blend_amount", powerup_status)
@@ -42,8 +43,10 @@ func play_powerup_transition(powerup: float) -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	powerup_status = powerup
 	set_powerup_status()
-	
-	
+
+func set_walk_speed(speed: float):
+	walk_speed = speed
+	set("parameters/Walk/walk_speed/scale", walk_speed)
 
 func set_powerup_status():
 	# idle
