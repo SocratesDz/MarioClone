@@ -2,6 +2,7 @@ class_name PlayerAnimationTree
 extends AnimationTree
 
 onready var state_machine_playback = get("parameters/playback")
+onready var powerup_transition_tween = $PowerupTransitionTween
 
 var direction: int = 1
 var powerup_status: float = -1.0

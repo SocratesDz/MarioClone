@@ -308,7 +308,7 @@ nodes/small_walk/node = SubResource( 9 )
 nodes/small_walk/position = Vector2( 180, 100 )
 nodes/walk_speed/node = SubResource( 12 )
 nodes/walk_speed/position = Vector2( 700, 120 )
-node_connections = [ "output", 0, "walk_speed", "Walk Blend", 0, "small_walk", "Walk Blend", 1, "big_walk", "Walk Blend", 2, "fire_walk", "walk_speed", 0, "Walk Blend" ]
+node_connections = [ "output", 0, "walk_speed", "walk_speed", 0, "Walk Blend", "Walk Blend", 0, "small_walk", "Walk Blend", 1, "big_walk", "Walk Blend", 2, "fire_walk" ]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=11]
 

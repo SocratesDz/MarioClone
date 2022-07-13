@@ -2933,6 +2933,8 @@ parameters/Walk/small_walk/blend_position = 1.0
 parameters/Walk/walk_speed/scale = 1.0
 script = ExtResource( 40 )
 
+[node name="PowerupTransitionTween" type="Tween" parent="PlayerAnimationTree"]
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 34 )
 initial_state = NodePath("Idle")
