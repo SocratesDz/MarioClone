@@ -31,3 +31,4 @@ position = Vector2( 53.6671, 131.224 )
 position = Vector2( 199.393, 122.232 )
 
 [node name="ItemBlock" parent="." instance=ExtResource( 4 )]
+position = Vector2( 129, 121 )
