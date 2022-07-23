@@ -8,9 +8,10 @@ func _ready():
 
 func _add_item_blocks(used_cells):
 	for i in used_cells.size():
-		var pos = map_to_world(used_cells[i])
+		var cell = used_cells[i]
+		var pos = map_to_world(cell)
 		var offset = cell_size / 2
 		var block = ItemBlock.instance()
 		block.position = pos + offset
 		add_child(block)
-		set_cellv(pos, -1)
+		set_cell(cell.x, cell.y, -1) # TODO: Report bug using set_cellv fails to clear them
