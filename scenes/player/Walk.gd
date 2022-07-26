@@ -19,6 +19,8 @@ func physics_update(_delta: float) -> void:
 	
 	if can_skid(motion, player.velocity.x):
 		player.animation_tree.play_skid()
+	else:
+		player.animation_tree.play_walk()
 	
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("OnAir", {do_jump = true})
@@ -31,4 +33,4 @@ func physics_update(_delta: float) -> void:
 func can_skid(motion, velocity_x) -> bool:
 	if(is_zero_approx(motion) or is_zero_approx(velocity_x)):
 		return false
-	return (motion/abs(motion)) != (velocity_x/abs(velocity_x))
+	return (motion/velocity_x) < 0
