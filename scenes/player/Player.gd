@@ -4,11 +4,33 @@ extends KinematicBody2D
 const MAX_WALK_SPEED := 4
 const MAX_JUMP_SPEED := 24
 
+export (NodePath) var left_limit
+export (NodePath) var top_limit
+export (NodePath) var bottom_limit
+export (NodePath) var right_limit
+
 onready var constants = preload("res://Constants.gd")
 onready var animation_tree: PlayerAnimationTree = $PlayerAnimationTree
+onready var camera: Camera2D = $Camera2D
 
 var facing_right := true
 var velocity := Vector2.ZERO
+
+func _ready():
+	var positions = {
+		"left": get_node(left_limit) as Position2D,
+		"top": get_node(top_limit) as Position2D,
+		"right": get_node(right_limit) as Position2D,
+		"bottom": get_node(bottom_limit) as Position2D
+	}
+	if(left_limit and top_limit 
+	and bottom_limit and right_limit):
+		camera.limit_top = positions.top.position.y
+		camera.limit_left = positions.left.position.x
+		camera.limit_bottom = positions.bottom.position.y
+		camera.limit_right = positions.right.position.x
+		print("camera limits set")
+	
 
 func powerup() -> void:
 	animation_tree.play_powerup_transition(0.0)

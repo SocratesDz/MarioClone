@@ -153,10 +153,12 @@
 
 [node name="Level1_1" type="Node2D"]
 
-[node name="Background" type="CanvasLayer" parent="."]
+[node name="Content" type="Node2D" parent="."]
+
+[node name="Background" type="CanvasLayer" parent="Content"]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
+[node name="ColorRect" type="ColorRect" parent="Content/Background"]
 margin_right = 256.0
 margin_bottom = 240.0
 color = Color( 0.576471, 0.733333, 0.92549, 1 )
@@ -164,13 +166,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Content" type="Node2D" parent="."]
-
 [node name="BackgroundProps" type="TileMap" parent="Content"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 524491, 5, 0, 524492, 5, 0, 524493, 5, 0, 590027, 3, 0, 590028, 0, 0, 590029, 4, 0, 655362, 8, 2, 655410, 8, 2, 655458, 8, 2, 655506, 8, 2, 655554, 8, 2, 655562, 5, 0, 655563, 6, 0, 655564, 6, 0, 655565, 6, 0, 655566, 5, 0, 720897, 8, 65537, 720898, 8, 131073, 720899, 8, 65539, 720913, 8, 2, 720945, 8, 65537, 720946, 8, 131073, 720947, 8, 65539, 720961, 8, 2, 720993, 8, 65537, 720994, 8, 131073, 720995, 8, 65539, 721009, 8, 2, 721041, 8, 65537, 721042, 8, 131073, 721043, 8, 65539, 721057, 8, 2, 721089, 8, 65537, 721090, 8, 131073, 721091, 8, 65539, 721098, 0, 0, 721099, 0, 0, 721100, 2, 0, 721101, 0, 0, 721102, 0, 0, 721105, 8, 2, 786432, 8, 131072, 786433, 8, 131073, 786434, 8, 131074, 786435, 8, 131073, 786436, 8, 131076, 786443, 7, 0, 786444, 7, 1, 786445, 7, 1, 786446, 7, 1, 786447, 7, 2, 786448, 8, 131072, 786449, 8, 131073, 786450, 8, 131076, 786455, 7, 0, 786456, 7, 1, 786457, 7, 2, 786473, 7, 0, 786474, 7, 1, 786475, 7, 1, 786476, 7, 2, 786480, 8, 131072, 786481, 8, 131073, 786482, 8, 131075, 786483, 8, 131073, 786484, 8, 131076, 786491, 7, 0, 786492, 7, 1, 786493, 7, 1, 786494, 7, 1, 786495, 7, 2, 786496, 8, 131072, 786497, 8, 131073, 786498, 8, 131076, 786503, 7, 0, 786504, 7, 1, 786505, 7, 2, 786521, 7, 0, 786522, 7, 1, 786523, 7, 1, 786524, 7, 2, 786528, 8, 131072, 786529, 8, 131073, 786530, 8, 131074, 786531, 8, 131073, 786532, 8, 131076, 786539, 7, 0, 786540, 7, 1, 786541, 7, 1, 786542, 7, 1, 786543, 7, 2, 786544, 8, 131072, 786545, 8, 131073, 786546, 8, 131076, 786551, 7, 0, 786552, 7, 1, 786553, 7, 2, 786570, 7, 1, 786571, 7, 1, 786576, 8, 131072, 786577, 8, 131073, 786578, 8, 131073, 786579, 8, 131073, 786580, 8, 131076, 786591, 7, 2, 786592, 8, 131072, 786593, 8, 131073, 786594, 8, 131076, 786599, 7, 0, 786600, 7, 1, 786601, 7, 2, 786624, 8, 131072, 786625, 8, 131073, 786626, 8, 131074, 786627, 8, 131073, 786628, 8, 131076, 786634, 0, 0, 786635, 0, 0, 786636, 1, 0, 786637, 0, 0, 786638, 0, 0, 786639, 7, 2, 786640, 8, 131072, 786641, 8, 131073, 786642, 8, 131076 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="LevelMap" type="TileMap" parent="Content"]
 tile_set = ExtResource( 1 )
@@ -184,8 +188,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="Content" instance=ExtResource( 2 )]
-position = Vector2( 42, 162 )
+[node name="LeftTopLimit" type="Position2D" parent="Content"]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Camera2D" type="Camera2D" parent="Content/Player"]
-current = true
+[node name="RightBottomLimit" type="Position2D" parent="Content"]
+position = Vector2( 3408, 240 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 42, 162 )
+left_limit = NodePath("../Content/LeftTopLimit")
+top_limit = NodePath("../Content/LeftTopLimit")
+bottom_limit = NodePath("../Content/RightBottomLimit")
+right_limit = NodePath("../Content/RightBottomLimit")
