@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/resources/BackgroundPropsTilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://assets/graphics/overworld_tileset.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 16.5 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8, -8, 0, 0, 0, 0, 8, 120 )
+}
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 128, 32, 16, 16 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "FlagDown"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path2D/PathFollow2D:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 4, 76 )
+
+[node name="CastleAndFlagpole" type="Node2D"]
+
+[node name="CastleProps" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -720896, 11, 0, -655360, 10, 0, -589824, 10, 0, -524288, 10, 0, -458752, 10, 0, -393216, 10, 0, -327680, 10, 0, -327675, 5, 0, -327674, 5, 0, -327673, 5, 0, -262144, 10, 0, -262139, 3, 0, -262138, 0, 0, -262137, 4, 0, -196608, 10, 0, -196604, 5, 0, -196603, 6, 0, -196602, 6, 0, -196601, 6, 0, -196600, 5, 0, -131072, 10, 0, -131068, 0, 0, -131067, 0, 0, -131066, 2, 0, -131065, 0, 0, -131064, 0, 0, -65536, 9, 0, -65532, 0, 0, -65531, 0, 0, -65530, 1, 0, -65529, 0, 0, -65528, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CastleEntrance" type="Area2D" parent="."]
+position = Vector2( 101, -14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CastleEntrance"]
+position = Vector2( 3, -2.5 )
+shape = SubResource( 1 )
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 0, -152 )
+curve = SubResource( 4 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 8, -8 )
+rotate = false
+
+[node name="Flag" type="Sprite" parent="Path2D/PathFollow2D"]
+texture = SubResource( 3 )
+offset = Vector2( -8, 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FlagDown = SubResource( 5 )
+anims/RESET = SubResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 8, -92 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 7 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
