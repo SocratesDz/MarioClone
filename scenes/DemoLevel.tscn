@@ -26,9 +26,20 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 53.6671, 131.224 )
+left_limit = NodePath("../Limits/TopLeft")
+top_limit = NodePath("../Limits/TopLeft")
+bottom_limit = NodePath("../Limits/BottomRight")
+right_limit = NodePath("../Limits/BottomRight")
 
 [node name="Mushroom" parent="." instance=ExtResource( 3 )]
 position = Vector2( 199.393, 122.232 )
 
 [node name="ItemBlock" parent="." instance=ExtResource( 4 )]
 position = Vector2( 129, 121 )
+
+[node name="Limits" type="Node2D" parent="."]
+
+[node name="TopLeft" type="Position2D" parent="Limits"]
+
+[node name="BottomRight" type="Position2D" parent="Limits"]
+position = Vector2( 256, 224 )
