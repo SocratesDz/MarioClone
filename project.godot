@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "BreakableBlock",
+"language": "GDScript",
+"path": "res://scenes/BreakableBlock.gd"
+}, {
 "base": "PlayerState",
 "class": "Climb",
 "language": "GDScript",
@@ -70,6 +75,7 @@ _global_script_classes=[ {
 "path": "res://scenes/player/Walk.gd"
 } ]
 _global_script_class_icons={
+"BreakableBlock": "",
 "Climb": "",
 "Constants": "",
 "Duck": "",
