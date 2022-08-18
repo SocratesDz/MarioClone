@@ -4,6 +4,8 @@ extends KinematicBody2D
 const MAX_WALK_SPEED := 4
 const MAX_JUMP_SPEED := 24
 
+enum PowerUp { NONE = -1, SUPER = 0, FIRE = 1 }
+
 export (NodePath) var left_limit
 export (NodePath) var top_limit
 export (NodePath) var bottom_limit
@@ -15,6 +17,8 @@ onready var camera: Camera2D = $Camera2D
 
 var facing_right := true
 var velocity := Vector2.ZERO
+
+var power_up = PowerUp.NONE
 
 func _ready():
 	var positions = {
@@ -34,19 +38,24 @@ func _ready():
 func _physics_process(delta):
 	_handle_hits()
 
-func powerup() -> void:
-	animation_tree.play_powerup_transition(0.0)
+func powerup(power_up) -> void:
+	self.power_up = power_up
+	animation_tree.play_powerup_transition(float(self.power_up))
 	
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_Q:
-			animation_tree.play_powerup_transition(-1.0)
+			animation_tree.play_powerup_transition(float(PowerUp.NONE))
 
-func _block_collision(block: Block):
-	if block.type == Block.Type.BREAKABLE:
-		block.destroy()
-	if block.type == Block.Type.ITEM:
-		block.hit()
+func _block_collision(block):
+	if block is Block:
+		if block.type == Block.Type.BREAKABLE:
+			if power_up != PowerUp.NONE:
+				block.destroy()
+			else:
+				block.hit()
+		if block.type == Block.Type.ITEM:
+			block.hit()
 
 func _handle_hits():
 	var collision = get_last_slide_collision()
