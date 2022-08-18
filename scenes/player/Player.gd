@@ -42,10 +42,11 @@ func _unhandled_input(event):
 		if event.pressed and event.scancode == KEY_Q:
 			animation_tree.play_powerup_transition(-1.0)
 
-func _block_collision(block):
-	print(block)
-	if block is BreakableBlock:
+func _block_collision(block: Block):
+	if block.type == Block.Type.BREAKABLE:
 		block.destroy()
+	if block.type == Block.Type.ITEM:
+		block.hit()
 
 func _handle_hits():
 	var collision = get_last_slide_collision()

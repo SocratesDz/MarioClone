@@ -1,6 +1,6 @@
 extends TileMap
 
-onready var ItemBlock = preload("res://scenes/ItemBlock.tscn")
+onready var ItemBlock = preload("res://scenes/Block.tscn")
 
 func _ready():
 	var item_block_cells = get_used_cells_by_id(10)
