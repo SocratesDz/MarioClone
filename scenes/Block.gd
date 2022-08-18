@@ -5,6 +5,7 @@ enum Type { BREAKABLE, ITEM }
 
 onready var _animatedSprite := $AnimatedSprite
 onready var _animationPlayer := $AnimationPlayer
+onready var _smallCoinScene := preload("res://scenes/SmallCoin.tscn")
 
 export(Type) var type setget _set_type
 
@@ -28,3 +29,6 @@ func destroy():
 
 func hit():
 	_animationPlayer.play("hit")
+	var coin = _smallCoinScene.instance()
+	coin.position.y = -16
+	add_child(coin)

@@ -33,7 +33,6 @@ func _ready():
 		camera.limit_left = positions.left.position.x
 		camera.limit_bottom = positions.bottom.position.y
 		camera.limit_right = positions.right.position.x
-		print("camera limits set")
 
 func _physics_process(delta):
 	_handle_hits()
@@ -43,9 +42,10 @@ func powerup(power_up) -> void:
 	animation_tree.play_powerup_transition(float(self.power_up))
 	
 func _unhandled_input(event):
+	### DEBUG OPERATIONS
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_Q:
-			animation_tree.play_powerup_transition(float(PowerUp.NONE))
+			powerup(PowerUp.NONE)
 
 func _block_collision(block):
 	if block is Block:
