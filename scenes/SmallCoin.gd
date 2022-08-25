@@ -10,3 +10,6 @@ func hit():
 	_animationPlayer.play("hit")
 	yield(_animationPlayer, "animation_finished")
 	queue_free()
+
+func show_score():
+	print("show 100 points")
