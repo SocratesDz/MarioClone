@@ -9,7 +9,7 @@ func _physics_process(_delta: float) -> void:
 		var collision = get_last_slide_collision()
 		if collision and collision.collider is Player:
 			var player = collision.collider as Player
-			player.powerup(Player.PowerUp.SUPER)
+			player.powerup(PowerUpNS.PowerUp.SUPER)
 			timer.start()
 
 func _on_ActiveTimer_timeout():

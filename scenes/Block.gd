@@ -12,6 +12,8 @@ onready var _collision_shape := $CollisionShape2D
 onready var _small_coin_scene := preload("res://scenes/SmallCoin.tscn")
 
 export(Type) var type setget _set_type
+export(int) var coin_amount = 0
+export(PowerUpNS.PowerUp) var power_up = PowerUpNS.PowerUp.NONE
 
 var current_animation = ""
 

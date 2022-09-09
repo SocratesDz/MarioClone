@@ -29,6 +29,9 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_just_pressed("fire_run"):
 #		state_machine.transition_to("Fire")
 		pass
+	
+	if not player.is_on_floor():
+		state_machine.transition_to("OnAir", {do_jump = false})
 
 func can_skid(motion, velocity_x) -> bool:
 	if(is_zero_approx(motion) or is_zero_approx(velocity_x)):

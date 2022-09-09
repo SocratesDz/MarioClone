@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=92 format=2]
+[gd_resource type="AnimationNodeStateMachine" load_steps=94 format=2]
 
 [sub_resource type="AnimationNodeBlend3" id=39]
 
@@ -90,7 +90,7 @@ blend_point_1/node = SubResource( 76 )
 blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=67]
-graph_offset = Vector2( 386.484, 65.5 )
+graph_offset = Vector2( -50.516, -6.5 )
 "nodes/Duck Blend/node" = SubResource( 68 )
 "nodes/Duck Blend/position" = Vector2( 560, 160 )
 nodes/big_duck/node = SubResource( 71 )
@@ -102,7 +102,12 @@ nodes/small_duck/node = SubResource( 77 )
 nodes/small_duck/position = Vector2( 240, 80 )
 node_connections = [ "output", 0, "Duck Blend", "Duck Blend", 0, "small_duck", "Duck Blend", 1, "big_duck", "Duck Blend", 2, "fire_duck" ]
 
+[sub_resource type="AnimationNodeAnimation" id=103]
+animation = "fire_idle_right"
+
 [sub_resource type="AnimationNodeBlend3" id=1]
+
+[sub_resource type="AnimationNodeOneShot" id=104]
 
 [sub_resource type="AnimationNodeAnimation" id=17]
 animation = "big_idle_right"
@@ -141,17 +146,21 @@ blend_point_1/node = SubResource( 24 )
 blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=5]
-graph_offset = Vector2( 0, 105.75 )
+graph_offset = Vector2( -118.46, 144.363 )
+nodes/Animation/node = SubResource( 103 )
+nodes/Animation/position = Vector2( 600, 400 )
 "nodes/Idle Blend/node" = SubResource( 1 )
 "nodes/Idle Blend/position" = Vector2( 560, 180 )
+nodes/OneShot/node = SubResource( 104 )
+nodes/OneShot/position = Vector2( 880, 160 )
 nodes/big_idle/node = SubResource( 19 )
 nodes/big_idle/position = Vector2( 260, 240 )
 nodes/fire_idle/node = SubResource( 22 )
 nodes/fire_idle/position = Vector2( 260, 380 )
-nodes/output/position = Vector2( 840, 180 )
+nodes/output/position = Vector2( 1160, 140 )
 nodes/small_idle/node = SubResource( 25 )
 nodes/small_idle/position = Vector2( 260, 100 )
-node_connections = [ "output", 0, "Idle Blend", "Idle Blend", 0, "small_idle", "Idle Blend", 1, "big_idle", "Idle Blend", 2, "fire_idle" ]
+node_connections = [ "output", 0, "OneShot", "Idle Blend", 0, "small_idle", "Idle Blend", 1, "big_idle", "Idle Blend", 2, "fire_idle", "OneShot", 0, "Idle Blend", "OneShot", 1, "Animation" ]
 
 [sub_resource type="AnimationNodeBlend3" id=26]
 
@@ -192,7 +201,7 @@ blend_point_1/node = SubResource( 33 )
 blend_point_1/pos = -1.0
 
 [sub_resource type="AnimationNodeBlendTree" id=35]
-graph_offset = Vector2( -309.07, 150.674 )
+graph_offset = Vector2( -76.2545, -47.8221 )
 "nodes/Jump Blend/node" = SubResource( 26 )
 "nodes/Jump Blend/position" = Vector2( 580, 120 )
 nodes/big_jump/node = SubResource( 28 )
@@ -296,7 +305,7 @@ value_label = "0"
 [sub_resource type="AnimationNodeTimeScale" id=12]
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( 0, 232.5 )
+graph_offset = Vector2( 72.2039, 4.26895 )
 "nodes/Walk Blend/node" = SubResource( 6 )
 "nodes/Walk Blend/position" = Vector2( 460, 120 )
 nodes/big_walk/node = SubResource( 14 )
@@ -373,4 +382,4 @@ states/Walk/node = SubResource( 10 )
 states/Walk/position = Vector2( 539.669, -83.928 )
 transitions = [ "Idle", "Walk", SubResource( 11 ), "Walk", "Idle", SubResource( 36 ), "Idle", "Jump", SubResource( 37 ), "Jump", "Idle", SubResource( 38 ), "Walk", "Jump", SubResource( 49 ), "Jump", "Walk", SubResource( 50 ), "Idle", "Climb", SubResource( 51 ), "Climb", "Idle", SubResource( 52 ), "Climb", "Jump", SubResource( 53 ), "Jump", "Climb", SubResource( 54 ), "Walk", "Climb", SubResource( 55 ), "Climb", "Walk", SubResource( 56 ), "Idle", "Duck", SubResource( 89 ), "Duck", "Idle", SubResource( 90 ), "Duck", "Walk", SubResource( 91 ), "Walk", "Duck", SubResource( 92 ), "Jump", "Duck", SubResource( 93 ), "Duck", "Jump", SubResource( 94 ), "Duck", "Climb", SubResource( 95 ), "Climb", "Duck", SubResource( 96 ), "Walk", "Skid", SubResource( 97 ), "Skid", "Walk", SubResource( 98 ), "Jump", "Skid", SubResource( 99 ), "Skid", "Jump", SubResource( 100 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -135.816, 64.1054 )
+graph_offset = Vector2( -300.816, -25.351 )

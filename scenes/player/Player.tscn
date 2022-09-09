@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://assets/graphics/mario/small_skid.png" type="Texture" id=1]
 [ext_resource path="res://assets/graphics/mario/big_walk3.png" type="Texture" id=2]
@@ -86,6 +86,11 @@ animations = [ {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "fire_idle",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "fire_idle_shoot",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -1353,6 +1358,71 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id=11]
 resource_name = "fire_idle_right"
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "fire_idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimatedSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CollisionShape2D:shape:extents")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 6, 16 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -16 ) ]
+}
+
+[sub_resource type="Animation" id=52]
+resource_name = "fire_idle_shoot_right"
 length = 0.1
 loop = true
 tracks/0/type = "value"
@@ -2864,6 +2934,10 @@ color_ramp = SubResource( 51 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 19 )
+left_limit = null
+top_limit = null
+bottom_limit = null
+right_limit = null
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -8 )
@@ -2895,6 +2969,7 @@ anims/fire_duck_left = SubResource( 39 )
 anims/fire_duck_right = SubResource( 10 )
 anims/fire_idle_left = SubResource( 35 )
 anims/fire_idle_right = SubResource( 11 )
+anims/fire_idle_shoot_right = SubResource( 52 )
 anims/fire_jump_left = SubResource( 36 )
 anims/fire_jump_right = SubResource( 12 )
 anims/fire_skid_left = SubResource( 34 )
@@ -2931,6 +3006,7 @@ parameters/Duck/big_duck/blend_position = 1.0
 parameters/Duck/fire_duck/blend_position = 1.0
 parameters/Duck/small_duck/blend_position = 1.0
 "parameters/Idle/Idle Blend/blend_amount" = -1.0
+parameters/Idle/OneShot/active = false
 parameters/Idle/big_idle/blend_position = 1.0
 parameters/Idle/fire_idle/blend_position = 1.0
 parameters/Idle/small_idle/blend_position = 1.0

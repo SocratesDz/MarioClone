@@ -4,8 +4,6 @@ extends KinematicBody2D
 const MAX_WALK_SPEED := 4
 const MAX_JUMP_SPEED := 24
 
-enum PowerUp { NONE = -1, SUPER = 0, FIRE = 1 }
-
 export (NodePath) var left_limit
 export (NodePath) var top_limit
 export (NodePath) var bottom_limit
@@ -18,7 +16,7 @@ onready var camera: Camera2D = $Camera2D
 var facing_right := true
 var velocity := Vector2.ZERO
 
-var power_up = PowerUp.NONE
+var power_up = PowerUpNS.PowerUp.NONE
 
 func _ready():
 	var positions = {
@@ -45,12 +43,12 @@ func _unhandled_input(event):
 	### DEBUG OPERATIONS
 	if event is InputEventKey:
 		if event.pressed and event.scancode == KEY_Q:
-			powerup(PowerUp.NONE)
+			powerup(PowerUpNS.PowerUp.NONE)
 
 func _block_collision(block):
 	if block is Block:
 		if block.type == Block.Type.BREAKABLE:
-			if power_up != PowerUp.NONE:
+			if power_up != PowerUpNS.PowerUp.NONE:
 				block.destroy()
 			else:
 				block.hit()
