@@ -193,7 +193,6 @@ type = 1
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "item"
-frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -214,3 +213,6 @@ explosiveness = 1.0
 local_coords = false
 process_material = SubResource( 11 )
 texture = ExtResource( 3 )
+
+[node name="ItemPosition" type="Position2D" parent="."]
+position = Vector2( 0, -16 )

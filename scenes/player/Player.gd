@@ -31,6 +31,8 @@ func _ready():
 		camera.limit_left = positions.left.position.x
 		camera.limit_bottom = positions.bottom.position.y
 		camera.limit_right = positions.right.position.x
+	
+	add_to_group("player")
 
 func _physics_process(delta):
 	_handle_hits()
