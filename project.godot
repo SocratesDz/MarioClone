@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/player/Duck.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://scenes/Enemy.gd"
+}, {
 "base": "PlayerState",
 "class": "Idle",
 "language": "GDScript",
@@ -89,6 +94,7 @@ _global_script_class_icons={
 "Climb": "",
 "Constants": "",
 "Duck": "",
+"Enemy": "",
 "Idle": "",
 "Mushroom": "",
 "OnAir": "",

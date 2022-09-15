@@ -29,3 +29,10 @@ func physics_update(_delta: float) -> void:
 			state_machine.transition_to("Walk")
 		else:
 			state_machine.transition_to("Idle")
+	
+	var collision = player.get_last_slide_collision()
+	if collision and collision.collider and collision.collider is Enemy:
+		var collider = collision.collider as Enemy
+		if abs(Vector2.UP.dot(collision.normal)) > 0.8:
+			collider.hit()
+			player.velocity = -collision.remainder.bounce(collision.normal)
