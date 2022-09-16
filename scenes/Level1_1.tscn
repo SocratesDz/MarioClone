@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/resources/LevelTilemap.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/resources/LevelTilemap.gd" type="Script" id=3]
 [ext_resource path="res://assets/resources/BackgroundPropsTilemap.tres" type="TileSet" id=4]
 [ext_resource path="res://scenes/CastleAndFlagpole.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=6]
 
 [node name="Level1_1" type="Node2D"]
 
@@ -65,3 +66,27 @@ left_limit = NodePath("../Content/LeftTopLimit")
 top_limit = NodePath("../Content/LeftTopLimit")
 bottom_limit = NodePath("../Content/RightBottomLimit")
 right_limit = NodePath("../Content/RightBottomLimit")
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 291, 199 )
+
+[node name="Enemy" parent="VisibilityEnabler2D" instance=ExtResource( 6 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VisibilityEnabler2D2" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 311, 199 )
+
+[node name="Enemy" parent="VisibilityEnabler2D2" instance=ExtResource( 6 )]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VisibilityEnabler2D3" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 331, 199 )
+
+[node name="Enemy" parent="VisibilityEnabler2D3" instance=ExtResource( 6 )]
+__meta__ = {
+"_edit_lock_": true
+}

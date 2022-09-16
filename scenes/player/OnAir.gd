@@ -35,4 +35,4 @@ func physics_update(_delta: float) -> void:
 		var collider = collision.collider as Enemy
 		if abs(Vector2.UP.dot(collision.normal)) > 0.8:
 			collider.hit()
-			player.velocity = -collision.remainder.bounce(collision.normal)
+			player.velocity.y = collision.remainder.bounce(collision.normal).y
