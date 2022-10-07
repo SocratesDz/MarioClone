@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/audio/fx/Jump.wav" type="AudioStream" id=1]
 [ext_resource path="res://assets/audio/fx/Coin.wav" type="AudioStream" id=2]
 [ext_resource path="res://assets/audio/music/Die.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/audio/fx/Powerup.wav" type="AudioStream" id=4]
 [ext_resource path="res://assets/audio/music/Game Over.wav" type="AudioStream" id=5]
+[ext_resource path="res://AudioSystem.gd" type="Script" id=6]
 
 [node name="AudioSystem" type="Node"]
+script = ExtResource( 6 )
 
 [node name="FX" type="Node" parent="."]
 

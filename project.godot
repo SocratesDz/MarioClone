@@ -114,6 +114,10 @@ config/name="Super Mario Bros Clone"
 run/main_scene="res://scenes/DemoLevel.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+AudioSystem="*res://AudioSystem.tscn"
+
 [display]
 
 window/size/width=256
