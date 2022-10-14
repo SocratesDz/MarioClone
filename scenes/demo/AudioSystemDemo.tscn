@@ -18,51 +18,88 @@ anchor_right = 0.969
 anchor_bottom = 0.964
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_right = 118.0
-margin_bottom = 207.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_right = 118.0
-margin_bottom = 14.0
-text = "FX Sounds"
-
-[node name="Button" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_top = 18.0
-margin_right = 118.0
-margin_bottom = 38.0
-text = "Jump"
-
-[node name="Button2" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_top = 42.0
-margin_right = 118.0
-margin_bottom = 62.0
-text = "Coin"
-
-[node name="Button3" type="Button" parent="Panel/HBoxContainer/VBoxContainer"]
-margin_top = 66.0
-margin_right = 118.0
-margin_bottom = 86.0
-text = "Power Up"
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="Panel/HBoxContainer"]
-margin_left = 122.0
 margin_right = 240.0
 margin_bottom = 207.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="Panel/HBoxContainer/VBoxContainer2"]
-margin_right = 118.0
+margin_right = 240.0
 margin_bottom = 14.0
 text = "Music"
 
-[node name="Button" type="Button" parent="Panel/HBoxContainer/VBoxContainer2"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/HBoxContainer/VBoxContainer2"]
 margin_top = 18.0
-margin_right = 118.0
-margin_bottom = 38.0
+margin_right = 240.0
+margin_bottom = 207.0
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer"]
+margin_right = 240.0
+margin_bottom = 188.0
+size_flags_horizontal = 3
+
+[node name="DieBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_right = 240.0
+margin_bottom = 20.0
+text = "Die"
+
+[node name="GameOverBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 44.0
 text = "Game Over"
 
-[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[node name="OverworldBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 68.0
+text = "Overworld"
+
+[node name="PauseBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 72.0
+margin_right = 240.0
+margin_bottom = 92.0
+text = "Pause"
+
+[node name="StarBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 96.0
+margin_right = 240.0
+margin_bottom = 116.0
+text = "Star"
+
+[node name="UnderworldBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 120.0
+margin_right = 240.0
+margin_bottom = 140.0
+text = "Underworld"
+
+[node name="WinBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 144.0
+margin_right = 240.0
+margin_bottom = 164.0
+text = "Win"
+
+[node name="CastleBtn" type="Button" parent="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 168.0
+margin_right = 240.0
+margin_bottom = 188.0
+text = "Castle"
+
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/DieBtn" to="." method="_on_DieBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/GameOverBtn" to="." method="_on_GameOverBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/OverworldBtn" to="." method="_on_OverworldBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/PauseBtn" to="." method="_on_PauseBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/StarBtn" to="." method="_on_StarBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/UnderworldBtn" to="." method="_on_UnderworldBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/WinBtn" to="." method="_on_WinBtn_pressed"]
+[connection signal="pressed" from="Panel/HBoxContainer/VBoxContainer2/ScrollContainer/VBoxContainer/CastleBtn" to="." method="_on_CastleBtn_pressed"]
