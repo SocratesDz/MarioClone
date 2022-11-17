@@ -12,6 +12,7 @@ export (NodePath) var right_limit
 onready var constants = preload("res://Constants.gd")
 onready var animation_tree: PlayerAnimationTree = $PlayerAnimationTree
 onready var camera: Camera2D = $Camera2D
+onready var fx_sounds: FXSounds = $FXSounds
 
 var facing_right := true
 var velocity := Vector2.ZERO
@@ -40,6 +41,7 @@ func _physics_process(delta):
 func powerup(power_up) -> void:
 	self.power_up = power_up
 	animation_tree.play_powerup_transition(float(self.power_up))
+	fx_sounds.play_sound(FXSounds.FxSoundId.POWERUP)
 	
 func _unhandled_input(event):
 	### DEBUG OPERATIONS

@@ -50,6 +50,10 @@ func hit():
 			var coin = _small_coin_scene.instance()
 			coin.position = _item_positon.position
 			add_child(coin)
+			coin_amount -= 1
+			if coin_amount == 0:
+				yield(_animation_player, "animation_finished")
+				set_as_used()
 		elif power_up == PowerUpNS.PowerUp.SUPER:
 			# Instance item
 			var mushroom = _mushroom_scene.instance()

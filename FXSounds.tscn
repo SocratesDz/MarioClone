@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/audio/fx/Jump.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/audio/fx/Powerup.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/audio/fx/Coin.wav" type="AudioStream" id=3]
+[ext_resource path="res://FXSounds.gd" type="Script" id=4]
+
+[node name="FXSounds" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+bus = "FX"
+
+[node name="Coin" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Powerup" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )

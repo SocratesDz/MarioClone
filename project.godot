@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scenes/Enemy.gd"
 }, {
+"base": "Node2D",
+"class": "FXSounds",
+"language": "GDScript",
+"path": "res://FXSounds.gd"
+}, {
 "base": "PlayerState",
 "class": "Idle",
 "language": "GDScript",
@@ -95,6 +100,7 @@ _global_script_class_icons={
 "Constants": "",
 "Duck": "",
 "Enemy": "",
+"FXSounds": "",
 "Idle": "",
 "Mushroom": "",
 "OnAir": "",

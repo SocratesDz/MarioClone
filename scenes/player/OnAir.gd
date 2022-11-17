@@ -8,6 +8,7 @@ func enter(msg := {}) -> void:
 	
 	if msg.get("do_jump"):
 		player.velocity.y = -max_jump_speed
+		player.fx_sounds.play_sound(FXSounds.FxSoundId.JUMP)
 		
 	player.animation_tree.play_jump()
 
